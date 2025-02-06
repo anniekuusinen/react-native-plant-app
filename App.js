@@ -1,12 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native"
+import BottomTabs from './navigation/bottomtabs'
+import { PlantProvider } from './context/PlantContext';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PlantProvider>
+      <NavigationContainer>
+        <BottomTabs />
+      </NavigationContainer>
+    </PlantProvider>
   );
 }
 
@@ -18,3 +22,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default App;
